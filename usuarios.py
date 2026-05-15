@@ -40,7 +40,7 @@ while True:
         break
     elif permissao == "Gerente" or permissao == "gerente":
         print("Cadastrado como gerente")
-        continue
+        break  
 else:
     print("Coloque uma permissão válida")
     
