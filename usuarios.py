@@ -27,11 +27,12 @@
 
 # inserir_dados = f.inserindo(perfil, email_usuario, nome_usuario, telefone, senha)
 
-niveis_permissoes = ("Funcionário", "Cliente", "Gerente", )
+niveis_permissoes = ["Funcionário", "Cliente", "Gerente", ]
 
-permissao = input(f"Informe qual o nível de permissão o usuário terá{niveis_permissoes}: ")
+# permissao = input(f"Informe qual o nível de permissão o usuário terá{niveis_permissoes}: ")
 
 while True:
+    permissao = input(f"Informe qual o nível de permissão o usuário terá{niveis_permissoes}: ")
     if permissao == "Funcionário" or permissao == "funcionário" or permissao == "funcionario":
         print("Cadastrado como funcionário")
         break
@@ -40,7 +41,7 @@ while True:
         break
     elif permissao == "Gerente" or permissao == "gerente":
         print("Cadastrado como gerente")
-        break  
-else:
-    print("Coloque uma permissão válida")
-    
+        break
+    else:
+        print("Informne uma permissão válida")
+        continue
