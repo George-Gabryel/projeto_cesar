@@ -2,7 +2,8 @@ perfil = {
         "usuario" : [],
         "email" : [],
         "telefone" : [],
-        "senha" : []
+        "senha" : [],
+        "tipo_perfil": []
 
     }
 
@@ -34,7 +35,7 @@ def cadastro():
             
     senha = input("Informa uma senha: ")
 
-    inserir_dados = f.inserindo(perfil, email_usuario, nome_usuario, telefone, senha)
+    inserir_dados = f.inserindo(perfil, email_usuario, nome_usuario, telefone, senha, tipo_perfil)
 
     tipo_perfil = ["Funcionário", "Cliente", "Gerente", ]
 
