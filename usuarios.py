@@ -1,9 +1,4 @@
-def cadastro():
-
-    import funcoes as f
-
-
-    perfil = {
+perfil = {
         "usuario" : [],
         "email" : [],
         "telefone" : [],
@@ -12,7 +7,19 @@ def cadastro():
     }
 
 
-    email_usuario = input("Escreva um e-mail válido: ")
+def cadastro():
+
+
+    import funcoes as f
+    import validacao as email
+    while True:
+        email_usuario = input("Escreva um e-mail válido: ")
+        if email.validar_email(email_usuario):
+            print("")
+            break
+        else:
+            print("Email inválido")
+            continue
 
     nome_usuario = input("Informe o nome de usuário: ")
 
