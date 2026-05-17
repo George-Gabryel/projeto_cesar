@@ -3,11 +3,17 @@ import funcoes as fun
 
 print("Bem vindo a tela principal")
 
-print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados",)
-escolha = int(input("O que você deseja fazer:" ))
+while True:
+    print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Sair")
+    escolha = int(input("O que você deseja fazer:" ))
 
-if escolha == 1:
-    criar = user.cadastro()
+    if escolha == 1:
+        criar = user.cadastro()
+        continue
+    elif escolha == 2:
+        print(user.perfil)
+        continue
+    elif escolha == 3:
+        break
 
-else:
-    print(user.perfil)
+print("Até mais")
