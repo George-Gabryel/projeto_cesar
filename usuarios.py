@@ -62,11 +62,27 @@ perfil = {
 
 # Atualizando informações
 
-alterar = input("Nome: ")
+while True:
+    
+        nome_antigo = input("Qual nome deseja alterar: ")
+        nome_novo = input("Qual o novo nome: ")
+        
+        validar = False
+        
+        for posicao, nome_atual in enumerate(perfil["usuario"]):
+            if nome_atual == nome_antigo:
+                perfil["usuario"][posicao] = nome_novo
+                validar = True
+                break
+        if validar:
+            print(f"O usuário foi alterado com sucesso!")
+            break
+        else:
+            print(f"O usuário {nome_antigo} não está cadastrado. Cadastre-o ou informe um usuário válido")
 
-for posicao, alterar in enumerate(perfil["usuario"]):
-    if alterar == perfil["usuario"]:
-        perfil["usuario"][posicao] = "Hugo"
-        break
+              
+
+                
+
 
 print(perfil["usuario"])
