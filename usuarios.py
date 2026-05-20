@@ -1,26 +1,19 @@
-import funcoes
+import funcoes as fun
+import validacao as validar
 
-#Dicionário com todos os usuários
-perfil = {
+padrao = {
         "usuario" : [],
         "email" : [],
         "telefone" : [],
         "senha" : [],
         "tipo_perfil": []
-
     }
 
-
-# Criando novo usuário
 def cadastro():
-
-
-    import funcoes as f
-    import validacao as email
     while True:
         email_usuario = input("Escreva um e-mail válido: ")
-        if email.validar_email(email_usuario):
-            print("")
+        if validar.validar_email(email_usuario):
+            print("O email cadastrado eh: ", email_usuario)
             break
         else:
             print("Email inválido")
@@ -29,66 +22,33 @@ def cadastro():
     nome_usuario = input("Informe o nome de usuário: ")
 
     while True:
-        try:
-
-            telefone = int(input("Informa um telefone: "))
+        telefone = input("Informa um telefone: ")
+        if validar.validar_telefone(telefone):
+            print("O telefone cadastrado eh: ", telefone)
             break
-
-        except ValueError:
+        else:
             print("Por favor, digite um número válido válida")
-            
-    senha = input("Informa uma senha: ")
 
-    inserir_dados = f.inserindo(perfil, email_usuario, nome_usuario, telefone, senha, tipo_perfil)
+    senha = input("Informa uma senha: ")
 
     tipo_perfil = ["Funcionário", "Cliente", "Gerente", ]
 
     while True:
         print(f"Perfis de usuários: {tipo_perfil}")
-        permissao = input(f"Informe qual o tipo de perfil do usuário:")
-        if permissao == "Funcionário" or permissao == "funcionário" or permissao == "funcionario":
+        perfil = input(f"Informe qual o tipo de perfil do usuário:")
+        if perfil == "Funcionário" or perfil == "funcionário" or perfil == "funcionario":
             print("Cadastrado como funcionário")
             break
-        elif permissao == "Cliente" or permissao == "cliente":
+        elif perfil == "Cliente" or perfil == "cliente":
             print("Cadastrado como cliente")
             break
-        elif permissao == "Gerente" or permissao == "gerente":
+        elif perfil == "Gerente" or perfil == "gerente":
             print("Cadastrado como gerente")
             break
         else:
-            print("Escolha um tipo de permissção válida")
+            print("Escolha um tipo de permissão válida")
             continue
 
+    print(f"Usuário ", perfil," cadastrado com suceso")
 
-    print(f"Usuário {perfil['usuario']} cadastrado com suceso")
-
-# Atualizando informações
-
-while True:
-    
-        nome_antigo = input("Qual nome deseja alterar: ")
-        nome_novo = input("Qual o novo nome: ")
-        
-        validar = False
-        
-        for posicao, nome_atual in enumerate(perfil["usuario"]):
-            if nome_atual == nome_antigo:
-                perfil["usuario"][posicao] = nome_novo
-                validar = True
-                break
-        if validar:
-            print(f"O usuário foi alterado com sucesso!")
-            break
-        else:
-            print(f"O usuário {nome_antigo} não está cadastrado. Cadastre-o ou informe um usuário válido")
-
-
-nome_antigo = None
-nome_novo = None
-posicao = None
-nome_atual = None
-
-funcoes.alterar_usuario(perfil, nome_antigo, nome_novo, posicao, nome_atual)
-
-
-print(perfil["usuario"])
+    fun.inserindo(padrao, email_usuario, nome_usuario, telefone, senha, perfil)
