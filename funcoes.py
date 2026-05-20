@@ -23,15 +23,7 @@ def alterar_usuario(padrao):
             break
         else:
             print(f"O usuário {nome_antigo} não está cadastrado.")
-
-
-        if encontrado:
-            print("O usuário foi alterado com sucesso!")
-            break
-        else:
-            print(f"O usuário {verificacao} não está cadastrado.")
     
-
 
 
 def alterar_email(padrao):
