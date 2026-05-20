@@ -18,6 +18,7 @@ def cadastro():
         else:
             print("Email inválido")
             continue
+        
 
     nome_usuario = input("Informe o nome de usuário: ")
 

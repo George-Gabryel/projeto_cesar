@@ -9,11 +9,11 @@ def inserindo(padrao, a, b, c, d, e):
 
 def alterar_usuario(padrao):
     nome_antigo = input("Qual nome deseja alterar: ")
-    nome_novo = input("Qual o novo nome: ")
-
+   
     encontrado = False
     for posicao, nome_atual in enumerate(padrao["usuario"]):
         if nome_atual == nome_antigo:
+            nome_novo = input("Qual o novo nome: ")
             padrao["usuario"][posicao] = nome_novo
             encontrado = True
             break

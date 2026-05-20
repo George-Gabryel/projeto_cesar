@@ -5,7 +5,7 @@ print("Bem vindo a tela principal")
 
 while True:
     print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Sair")
-    escolha = int(input("O que você deseja fazer:" ))
+    escolha = int(input("O que você deseja fazer: " ))
 
     if escolha == 1:
         criar = user.cadastro()
