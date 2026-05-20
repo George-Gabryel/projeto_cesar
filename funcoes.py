@@ -13,7 +13,7 @@ def alterar_usuario(padrao):
     encontrado = False
     for posicao_email, email_atual in enumerate(padrao["email"]):
         if email_atual == verificacao:
-            for posicao_usuario in enumerate(padrao["usuario"]):
+            for posicao_usuario in (padrao["usuario"]):
                 if posicao_email == posicao_usuario:
                     nome_novo = input("Qual o novo nome: ")
                     padrao["usuario"][posicao_usuario] = nome_novo
