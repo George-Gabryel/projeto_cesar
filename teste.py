@@ -1,3 +1,12 @@
+padrao = {
+        "usuario" : [],
+        "email" : [],
+        "telefone" : [],
+        "senha" : [],
+        "tipo_perfil": []
+    }
+
+
 verificacao = input("Informe o e-mail do usuário que será alterado: ")
    
 encontrado = False
