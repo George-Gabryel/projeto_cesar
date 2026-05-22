@@ -23,6 +23,7 @@ def cadastro():
     nome_usuario = input("Informe o nome de usuário: ")
 
     while True:
+        
         telefone = input("Informa um telefone: ")
         if validar.validar_telefone(telefone):
             print("O telefone cadastrado eh: ", telefone)

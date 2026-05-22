@@ -4,4 +4,6 @@ def validar_email(email):
     return bool(re.match(padrao, email))
 
 def validar_telefone(telefone):
-    return True
+    import re
+    tele = r'^(\d{2})\s?(9?\d{4})-?(\d{4})$'
+    return bool(re.match(tele,telefone))
