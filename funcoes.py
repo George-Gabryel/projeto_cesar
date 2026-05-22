@@ -8,26 +8,27 @@ def inserindo(padrao, a, b, c, d, e):
     padrao["tipo_perfil"].append(e)
 
 def alterar_usuario(padrao):
-    nome_antigo = input("Qual nome deseja alterar: ")
-    nome_novo = input("Qual o novo nome: ")
-
-    encontrado = False
+   
+    verificacao = input("Informe o e-mail do usuário que será alterado: ")
     
-    for posicao_email, email_atual in enumerate(padrao["email"]):
-        if email_atual == verificacao:
-            for posicao_usuario, usuario in enumerate(padrao["usuario"]):
-                if posicao_usuario == posicao_email:
-                    print("Nome de usuário -->", padrao["usuario"][posicao_email])
-                    usuario = input("Qual será o novo nome do usuário:  ")
-                    padrao["usuario"][posicao_email] = usuario
-                    encontrado = True
-                    break
+    encontrado = False
 
-        if encontrado:
-            print("O usuário foi alterado com sucesso!")
-            break
-        else:
-            print(f"O usuário {nome_antigo} não está cadastrado.")
+    for posicao_email, email_atual in enumerate(padrao["email"]):
+            if email_atual == verificacao:
+                for posicao_usuario, usuario in enumerate(padrao["usuario"]):
+                    if posicao_usuario == posicao_email:
+                        print("Nome de usuário -->", padrao["usuario"][posicao_email])
+                        usuario = input("Qual será o novo nome do usuário:  ")
+                        padrao["usuario"][posicao_email] = usuario
+                        encontrado = True
+                        break
+
+
+            if encontrado:
+                print("O usuário foi alterado com sucesso!")
+                break
+            else:
+                print(f"O e-mail {verificacao} não foi cadastrado. Verifique o e-mail ou cadastre o usuário")
     
 
 

@@ -8,19 +8,19 @@ padrao = {
         "tipo_perfil": []
     }
 
-# verificacao = input("Informe o e-mail do usuário que será alterado: ")
+verificacao = input("Informe o e-mail do usuário que será alterado: ")
    
-# encontrado = False
+encontrado = False
 
-# for posicao_email, email_atual in enumerate(padrao["email"]):
-#         if email_atual == verificacao:
-#             for posicao_usuario, usuario in enumerate(padrao["usuario"]):
-#                 if posicao_usuario == posicao_email:
-#                     print("Nome de usuário -->", padrao["usuario"][posicao_email])
-#                     usuario = input("Qual será o novo nome do usuário:  ")
-#                     padrao["usuario"][posicao_email] = usuario
-#                     encontrado = True
-#                     break
+for posicao_email, email_atual in enumerate(padrao["email"]):
+        if email_atual == verificacao:
+            for posicao_usuario, usuario in enumerate(padrao["usuario"]):
+                if posicao_usuario == posicao_email:
+                    print("Nome de usuário -->", padrao["usuario"][posicao_email])
+                    usuario = input("Qual será o novo nome do usuário:  ")
+                    padrao["usuario"][posicao_email] = usuario
+                    encontrado = True
+                    break
 
 
 # print(padrao["usuario"])
@@ -38,7 +38,7 @@ if validar.validar_email(email_antigo):
                 if validar.validar_email(email_novo):
                     padrao["email"][posicao] = email_novo
                     print("Email alterado")
-                    return
+                    
                     email_encontrado = True
                     break  # Para o loop 'for' pois já achou e alterou
                 else:
