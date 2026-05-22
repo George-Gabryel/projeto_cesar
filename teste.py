@@ -79,7 +79,7 @@ while True:
                         padrao["email"][posicao] = email_novo
                         print("Email alterado")
                         email_encontrado = True
-                        return # Para o loop 'for' pois já achou e alterou
+                         # Para o loop 'for' pois já achou e alterou
                     else:
                         print("Email inválido. Tente novamente.")
                         # Aqui você decide se quer dar break ou tentar de novo
