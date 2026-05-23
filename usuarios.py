@@ -24,33 +24,33 @@ def cadastro():
 
     while True:
         
-        telefone = input("Informa um telefone: ")
-        if validar.validar_telefone(telefone):
-            print("O telefone cadastrado eh: ", telefone)
+        telefone_usuario = input("Informa um telefone: ")
+        if validar.validar_telefone(telefone_usuario):
+            print("O telefone cadastrado eh: ", telefone_usuario)
             break
         else:
-            print("Por favor, digite um número válido válida")
+            print("Por favor, digite um número válido")
 
-    senha = input("Informa uma senha: ")
+    senha_usuario = input("Informa uma senha: ")
 
     tipo_perfil = ["Funcionário", "Cliente", "Gerente", ]
 
     while True:
         print(f"Perfis de usuários: {tipo_perfil}")
-        perfil = input(f"Informe qual o tipo de perfil do usuário:")
-        if perfil == "Funcionário" or perfil == "funcionário" or perfil == "funcionario":
+        perfil_usuario = input(f"Informe qual o tipo de perfil do usuário:")
+        if perfil_usuario == "Funcionário" or perfil_usuario == "funcionário" or perfil_usuario == "funcionario":
             print("Cadastrado como funcionário")
             break
-        elif perfil == "Cliente" or perfil == "cliente":
+        elif perfil_usuario == "Cliente" or perfil_usuario == "cliente":
             print("Cadastrado como cliente")
             break
-        elif perfil == "Gerente" or perfil == "gerente":
+        elif perfil_usuario == "Gerente" or perfil_usuario == "gerente":
             print("Cadastrado como gerente")
             break
         else:
             print("Escolha um tipo de permissão válida")
             continue
 
-    print(f"Usuário ", perfil," cadastrado com suceso")
+    print(f"Usuário ", perfil_usuario," cadastrado com suceso")
 
-    fun.inserindo(padrao, email_usuario, nome_usuario, telefone, senha, perfil)
+    fun.inserindo(padrao, email_usuario, nome_usuario, telefone_usuario, senha_usuario, perfil_usuario)

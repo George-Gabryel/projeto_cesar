@@ -1,15 +1,15 @@
 import validacao as validar
 
-def inserindo(padrao, a, b, c, d, e):
-    padrao["email"].append(a)
-    padrao["usuario"].append(b)
-    padrao["telefone"].append(c)
-    padrao["senha"].append(d)
-    padrao["tipo_perfil"].append(e)
+def inserindo(padrao, email_usuario, nome_usuario, telefone_usuario, senha_usuario, perfil_usuario):
+    padrao["email"].append(email_usuario)
+    padrao["usuario"].append(nome_usuario)
+    padrao["telefone"].append(telefone_usuario)
+    padrao["senha"].append(senha_usuario)
+    padrao["tipo_perfil"].append(perfil_usuario)
 
 def alterar_usuario(padrao):
    
-    verificacao = input("Informe o e-mail do usuário que será alterado: ")
+    verificacao = input("Informe o e-mail que deseja alterar o nome do usuário: ")
     
     encontrado = False
 
