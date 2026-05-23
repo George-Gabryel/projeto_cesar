@@ -6,7 +6,7 @@ padrao = {
         "email" : ["george.gabryel07@gmail.com", "hugo.leonardo@gmail.com", "fabio.viana@gmail.com"],
         "telefone" : ["81973169780", "81996287191"],
         "senha" : ["gsgs07", "gsgs11"],
-        "tipo_perfil": []
+        "tipo_perfil": ["Cliente", "Gerente"]
     }
 
 # verificacao = input("Informe o e-mail do usuário que será alterado: ")
@@ -88,6 +88,36 @@ padrao = {
 #     print(f"O email {email_antigo} não foi encontrado. Cadastre-o ou escreva um email válido")
 
 
+# while True:
+#         email_encontrado = False
+#         usuario = input("Informe seu usuario: ")
+        
+#         if usuario not in padrao["usuario"]:
+#             print(f"O usuario '{usuario}' n esta cadastrado.")
+#             continue
+
+#         email_antigo = input("Informe seu e-mail: ")
+#         if validar.validar_email(email_antigo):
+#             for posicao, email_atual in enumerate(padrao["email"]):
+#                     if email_atual == email_antigo:
+#                         senha_atual = input("Informe sua senha atual: ")
+#                         posicao = padrao["email"].index(email_antigo)
+#                         if padrao["senha"][posicao] != senha_atual:
+#                             print("Senha atual ta incorreta")
+#                             continue
+#                         senha_nova = input("Informe a nova senha: ")
+#                         padrao["senha"][posicao] = senha_nova
+#                         print("Senha alterada")
+#                         email_encontrado = True
+#                         break
+#         if email_encontrado:
+#             break 
+
+#         else:
+#             print(f"O email {email_antigo} não foi encontrado. Cadastre-o ou escreva um email já cadastrado")
+#             break 
+
+
 while True:
         email_encontrado = False
         usuario = input("Informe seu usuario: ")
@@ -99,19 +129,32 @@ while True:
         email_antigo = input("Informe seu e-mail: ")
         if validar.validar_email(email_antigo):
             for posicao, email_atual in enumerate(padrao["email"]):
-                    if email_atual == email_antigo:
+                if email_atual == email_antigo:
                         senha_atual = input("Informe sua senha atual: ")
                         posicao = padrao["email"].index(email_antigo)
                         if padrao["senha"][posicao] != senha_atual:
                             print("Senha atual ta incorreta")
                             continue
-                        senha_nova = input("Informe a nova senha: ")
-                        padrao["senha"][posicao] = senha_nova
-                        print("Senha alterada")
-                        email_encontrado = True
-                        break
+                        print("1 - Sim \n2 - Não")
+                        validar_remocao = int(input("Tem certeza que deseja remover os registros desse usuário:"))
+                        if validar_remocao == 1:
+                            padrao["email"].pop(posicao)
+                            padrao["usuario"].pop(posicao)
+                            padrao["telefone"].pop(posicao)
+                            padrao["senha"].pop(posicao)
+                            padrao["tipo_perfil"].pop(posicao)
+                            print("Remoção realizada com sucesso")
+                            email_encontrado = True
+                            break
+                        elif validar_remocao == 2:
+                            print("Remoção Cancelada")
+                            break
+                        else:
+                            print("Opção inválida")
+                            break
+
         if email_encontrado:
-            break 
+            break
 
         else:
             print(f"O email {email_antigo} não foi encontrado. Cadastre-o ou escreva um email já cadastrado")
