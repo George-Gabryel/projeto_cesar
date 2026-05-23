@@ -5,7 +5,7 @@ print("===== BEM VINDO A TELA DE GESTÃO DE USUÁRIOS ====\n")
 
 while True:
     print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Deletar usuário \n5 - Sair\n")
-    escolha = int(input("O que você deseja fazer:\n " ))
+    escolha = int(input("O que você deseja fazer: " ))
 
     if escolha == 1:
         criar = user.cadastro()
