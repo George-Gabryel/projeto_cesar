@@ -65,54 +65,81 @@ def alterar_email(padrao):
 
 
 def alterar_telefone(padrao):
-    telefone_antigo = input("Qual telefone sera alterado: ")
+    email_antigo = input("Qual e-mail você deseja alterar o telefone cadastrado: ")
 
-    while True:
-        telefone_novo = input("Qual sera o novo telefone: ")
-        if validar.validar_telefone(telefone_novo):
-            break
-        print("telefone paia")
+    if validar.validar_email(email_antigo):
+        while True:
+                telefone_encontrado = False 
+                
+                for posicao, email_atual in enumerate(padrao["email"]):
+                    if email_atual == email_antigo:
+                        print(f"Telefone cadastrado --> {padrao["telefone"][posicao]}")
+                        telefone_novo = input("Qual será o novo telefone: ")
+                        
+                        if validar.validar_telefone(telefone_novo):
+                            padrao["telefone"][posicao] = telefone_novo
+                            print("Telefone Alterado com sucesso!!")
+                            telefone_encontrado = True
+                            return
+                        else:
+                            print("Telefone inválido. Tente novamente.")
+                            break
+                
+                if telefone_encontrado:
+                    break 
+                else:
+                    print(f"O telefone {email_antigo} não foi encontrado. Cadastre-o ou escreva um telefone já cadastrado")
+                    break 
 
-    for posicao, telefone_atual in enumerate(padrao["telefone"]):
-        if telefone_atual == telefone_antigo:
-            padrao["telefone"][posicao] = telefone_novo
-            print("Telefone alterado")
-            return
-    print(f"O telefone {telefone_antigo} nao esta cadastrado. Cadastre-o ou informe um telefone válido")
+    else:
+        print(f"O email {email_antigo} não foi encontrado. Cadastre-o ou escreva um email válido")
+
 
 
 
 
 def alterar_perfil(padrao):
-    usuario = input("Informe seu usuário: ")
-    
-    for posicao, usuario_atual in enumerate(padrao["usuario"]):
-        if usuario_atual == usuario:
-            perfil_novo = input("Qual o novo tipo de padrao: ")
-            padrao["tipo_perfil"][posicao] = perfil_novo
-            print("Perfil alterado")
-            return
-    print(f"O usuario '{usuario}' n esta cadastrado.")
+    email_antigo = input("Qual e-mail você deseja alterar o perfil cadastrado: ")
+
+    if validar.validar_email(email_antigo):
+        for posicao, email_atual in enumerate(padrao["email"]):
+                    if email_atual == email_antigo:
+                        print(f"Perfil cadastrado --> {padrao["tipo_perfil"][posicao]}")
+                        perfil_novo = input("Qual será o novo perfil que esse usuário receberá: ")
+                        padrao["tipo_perfil"][posicao] = perfil_novo
+                        print("Perfil alterado")
+                        return
+        print(f"O e-mail '{email_antigo}' não está cadastrado. Cadastre-o ou informe um e-mail válido")
 
 
 
 
 def alterar_senha(padrao):
     while True:
+        email_encontrado = False
         usuario = input("Informe seu usuario: ")
         
         if usuario not in padrao["usuario"]:
             print(f"O usuario '{usuario}' n esta cadastrado.")
             continue
-        
-        senha_atual = input("Informe sua senha atual: ")
-        posicao = padrao["usuario"].index(usuario)
-        
-        if padrao["senha"][posicao] != senha_atual:
-            print("Senha atual ta errada")
-            continue
-        
-        senha_nova = input("Informe a nova senha: ")
-        padrao["senha"][posicao] = senha_nova
-        print("Senha alterada")
-        break
+
+        email_antigo = input("Informe seu e-mail: ")
+        if validar.validar_email(email_antigo):
+            for posicao, email_atual in enumerate(padrao["email"]):
+                    if email_atual == email_antigo:
+                        senha_atual = input("Informe sua senha atual: ")
+                        posicao = padrao["email"].index(email_antigo)
+                        if padrao["senha"][posicao] != senha_atual:
+                            print("Senha atual ta incorreta")
+                            continue
+                        senha_nova = input("Informe a nova senha: ")
+                        padrao["senha"][posicao] = senha_nova
+                        print("Senha alterada")
+                        email_encontrado = True
+                        break
+        if email_encontrado:
+            break 
+
+        else:
+            print(f"O email {email_antigo} não foi encontrado. Cadastre-o ou escreva um email já cadastrado")
+            break 
