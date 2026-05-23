@@ -1,11 +1,11 @@
 import usuarios as user
 import funcoes as fun
 
-print("Bem vindo a tela principal")
+print("===== BEM VINDO A TELA DE GESTÃO DE USUÁRIOS ====\n")
 
 while True:
-    print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Deletar usuário \n5 - Sair")
-    escolha = int(input("O que você deseja fazer: " ))
+    print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Deletar usuário \n5 - Sair\n")
+    escolha = int(input("O que você deseja fazer:\n " ))
 
     if escolha == 1:
         criar = user.cadastro()
@@ -15,7 +15,7 @@ while True:
         continue
     elif escolha == 3:
         print("O que deseja alterar?")
-        print("1 - Nome de usuário\n2 - E-mail\n3 - Telefone\n4 - Senha\n5 - Perfil")
+        print("\n1 - Nome de usuário\n2 - E-mail\n3 - Telefone\n4 - Senha\n5 - Perfil")
         sub_escolha = int(input("Escolha: "))
 
         if sub_escolha == 1:
