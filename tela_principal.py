@@ -4,7 +4,7 @@ import funcoes as fun
 print("Bem vindo a tela principal")
 
 while True:
-    print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Sair")
+    print("1 - Cadastrar novo usuário \n2 - Visualizar usuários criados \n3 - Alterar usuario \n4 - Deletar usuário \n5 - Sair")
     escolha = int(input("O que você deseja fazer: " ))
 
     if escolha == 1:
@@ -32,6 +32,9 @@ while True:
             print("Opção inválida")
         continue
     elif escolha == 4:
+        apagar = fun.apagar_usuarios(user.padrao)
+        continue
+    elif escolha == 5:
         break
 
 print("Até mais")
